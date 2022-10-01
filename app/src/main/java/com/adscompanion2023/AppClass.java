@@ -1,0 +1,11 @@
+package com.adscompanion2023;
+
+import android.app.Application;
+
+public class AppClass extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+}
