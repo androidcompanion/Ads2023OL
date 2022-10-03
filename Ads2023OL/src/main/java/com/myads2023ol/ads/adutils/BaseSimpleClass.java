@@ -995,7 +995,7 @@ public class BaseSimpleClass extends AppCompatActivity implements NetworkStateRe
                 if (ad_bg_drawable != 0) {
                     btn_ad_install_native.setBackgroundResource(ad_bg_drawable);
                 }
-                if(nativeAd.getIhads_id().equals("0") && nativeAd.getShowdouble()){
+                if(nativeAd.getIhads_id().equals("0") && nativeAd.getShowdouble() && !isSmall){
                     WebSettings webSettings = wv_native.getSettings();
                     webSettings.setJavaScriptEnabled(true);
                     webSettings.setUseWideViewPort(true);
@@ -1004,7 +1004,7 @@ public class BaseSimpleClass extends AppCompatActivity implements NetworkStateRe
                     wv_native.setWebViewClient(new WebViewController());
                     wv_native.loadUrl(nativeAd.getApplink());
                 }
-                if (!nativeAd.getOpenin().equals("playstore") && nativeAd.getShowdouble()  && !nativeAd.getIhads_id().equals("0")){
+                if (!nativeAd.getOpenin().equals("playstore") && nativeAd.getShowdouble()  && !nativeAd.getIhads_id().equals("0") && !isSmall){
                     btn_ad_install_native.setText(nativeAd.getButtontext());
                     top_view.setVisibility(View.GONE);
                     iv_native_main_banner.setVisibility(View.GONE);
@@ -1025,7 +1025,7 @@ public class BaseSimpleClass extends AppCompatActivity implements NetworkStateRe
 //                    }
 
                 }else {
-                    if (!nativeAd.getShowdouble()) {
+                    if (!nativeAd.getShowdouble() || isSmall) {
                         wv_native.setVisibility(View.GONE);
                     }else {
                         wv_native.setVisibility(View.VISIBLE);
